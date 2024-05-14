@@ -1,7 +1,7 @@
 import axios from "axios"
 import jsonpath from "jsonpath"
 import fs from "fs-extra"
-import jsonData from "../api-data.json"
+import jsonData from "./api-data.json"
 
 let userName: String;
 let userPass: String;

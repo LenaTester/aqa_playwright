@@ -14,6 +14,7 @@ describe("tests for users", () => {
     })
 
     apiClient.interceptors.request.use(function (config) {
+        config.headers.Authorization = `Bearer ${jsonData.token}`
         console.log(`Request url: ${config.baseURL}${config.url}`);
         return config
     })
