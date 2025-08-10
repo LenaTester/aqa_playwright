@@ -13,8 +13,8 @@ export const users = {
         name: 'Peter12@',
         lastname: 'Cooper34&',
         email: 'aqa-peterc@gmail.com',
-        password: 'Peter_Pass123',
-        repeat_password: 'Peter_Pass123'
+        password: 'Peter_Pass789',
+        repeat_password: 'Peter_Pass789'
     },
 
     // Invalid Email Format
