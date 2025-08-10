@@ -21,10 +21,13 @@ export class RegistrationPage {
     }
     }
 
-    async userRegistration(name:string, lastname: string, email: string, 
-        password: string, repeat_password: string) {
+    async navigateToRegistration() {
         await this.elements.signInButton.click()
         await this.elements.registrationButton.click()
+    }
+
+    async userRegistration(name:string, lastname: string, email: string, 
+        password: string, repeat_password: string) {
         await this.elements.nameField.fill(name)
         await this.elements.lastNameField.fill(lastname)
         await this.elements.emailField.fill(email)
