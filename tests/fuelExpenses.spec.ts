@@ -22,10 +22,10 @@ test.describe('Fuel Expenses tests', () => {
         await addingCar.goToFuelExpenses()
         const fuelExpensePage = new FuelExpensesPage(page)
         await fuelExpensePage.addExpense('2000', '2000', '2000')
-        await expect(fuelExpensePage.elements.tableCell.nth(0)).toHaveText(`${dd}.${mm}.${yyyy}`)
-        await expect(fuelExpensePage.elements.tableCell.nth(1)).toHaveText('2000')
-        await expect(fuelExpensePage.elements.tableCell.nth(2)).toHaveText('2000L')
-        await expect(fuelExpensePage.elements.tableCell.nth(3)).toHaveText('2000.00 USD')
+        await expect(fuelExpensePage.elements.tableCell.nth(await fuelExpensePage.columnIndexByHeader('Date'))).toHaveText(`${dd}.${mm}.${yyyy}`)
+        await expect(fuelExpensePage.elements.tableCell.nth(await fuelExpensePage.columnIndexByHeader('Mileage'))).toHaveText('2000')
+        await expect(fuelExpensePage.elements.tableCell.nth(await fuelExpensePage.columnIndexByHeader('Liters used'))).toHaveText('2000L')
+        await expect(fuelExpensePage.elements.tableCell.nth(await fuelExpensePage.columnIndexByHeader('Liters used'))).toHaveText('2000.00 USD')
     })
 
     test('changing fuel expense is successful', async ({ addingCar, page }) => {

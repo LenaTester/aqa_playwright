@@ -23,10 +23,18 @@ export class FuelExpensesPage {
         saveButton: page.locator("//button[text()='Save']"),
         deleteIcon: page.locator(".icon.icon-delete"),
         removeButton: page.locator("//button[text()='Remove']"),
-        tableCell: page.locator("table>tbody>tr>td")
+        headerCells: page.locator('.table.expenses_table>thead>tr>th'),
+        tableCell: page.locator("table>tbody>tr>td"),
     }
     this.noFuelExpenseMessage = page.locator(".h3.panel-empty_message")
 }
+
+    async columnIndexByHeader(columnHeader: string) {
+        await this.elements.headerCells.first().waitFor({ state: 'visible' })
+        const innerNames = await this.elements.headerCells.allInnerTexts()
+        const columnIndex = innerNames.findIndex(h => h.trim() === columnHeader);
+        return columnIndex;
+    }
 
     async addExpense(milleage: string, litters: string, cost: string) {
         await this.elements.addExpenseButton.click()
